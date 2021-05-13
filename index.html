@@ -61,10 +61,13 @@
             createCamera();
             crearLuz();
             render();
+            personaje()
+
 
         }
 
         //crear personaje
+        function personaje(params) {
             var loader2 = new THREE.FBXLoader();
             loader2.load("objetos/animacion.fbx", function (object2) {
                 object2.mixer = new THREE.AnimationMixer(object2);
@@ -87,6 +90,8 @@
             renderer = new THREE.WebGLRenderer({
                 antialias: true,
             });
+        }
+           
 
 
         function crearLuz() {
