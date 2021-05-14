@@ -24,7 +24,7 @@
             display: block;
         }
 
-        #info a {
+        #info h1 {
             color: #046;
             font-weight: bold;
         }
@@ -56,7 +56,7 @@
             container = document.createElement('div');
             document.body.appendChild(container);
             camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
-            camera.position.set(100, 200, 300);
+            camera.position.set(100, 100, 400);
             controls = new THREE.OrbitControls(camera);
             controls.target.set(0, 100, 0);
             controls.update();
@@ -72,13 +72,13 @@
             light.castShadow = true;
             light.shadow.camera.top = 180;
             light.shadow.camera.bottom = -100;
-            light.shadow.camera.left = -120;
+            light.shadow.camera.left = -100;
             light.shadow.camera.right = 120;
             scene.add(light);
             // scene.add( new THREE.CameraHelper( light.shadow.camera ) );
             // ground
             var mesh = new THREE.Mesh(new THREE.PlaneBufferGeometry(2000, 2000), new THREE.MeshPhongMaterial({
-                color: 0x999999,
+                color: 0x555555,
                 depthWrite: false
             }));
 
@@ -91,26 +91,12 @@
             grid.material.transparent = true;
             scene.add(grid);
 
-            // model
-            // var loader = new THREE.FBXLoader();
-            // loader.load('models/Personaje.fbx', function(object) {
-            //     object.mixer = new THREE.AnimationMixer(object);
-            //     mixers.push(object.mixer);
-            //     var action = object.mixer.clipAction(object.animations[0]);
-            //     action.play();
-            //     object.traverse(function(child) {
-            //         if (child.isMesh) {
-            //             child.castShadow = true;
-            //             child.receiveShadow = true;
-            //         }
-            //     });
-            //     object.scale.set(0.2, 0.2, 0.2);
-            //     object.position.x = 10;
-            //     scene.add(object);
-            // });
+          
+
+
 
             var loader2 = new THREE.FBXLoader();
-            loader2.load('models/animacion.fbx', function (object2) {
+            loader2.load('models/guerrero.fbx', function (object2) {
                 object2.mixer = new THREE.AnimationMixer(object2);
                 mixers.push(object2.mixer);
                 var action = object2.mixer.clipAction(object2.animations[0]);
@@ -121,15 +107,14 @@
                         child.receiveShadow = true;
                     }
                 });
-                object2.scale.set(0.2, 0.2, 0.2);
-                object2.Name = 'dragon';
+                object2.scale.set(2, 2, 2);
+                object2.Name = 'personaje';
                 scene.add(object2);
 
             });
             // model two
 
-            var objeto = scene.getObjectByName("dragon");
-
+            var objeto = scene.getObjectByName("personaje");
 
 
 
